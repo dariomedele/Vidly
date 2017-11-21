@@ -1,0 +1,25 @@
+﻿@model List<Vidly.Models.Movie>
+
+@{
+    ViewBag.Title = "Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+
+@if (Model.Count == 0)
+{
+    <Text> No movies found</Text>
+
+    }
+    else
+    {
+    
+   foreach (var movie in Model) { 
+    
+
+
+        <text> @movie.Name</text>
+    }
+    
+        }
