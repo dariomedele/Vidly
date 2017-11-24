@@ -5,13 +5,14 @@ using System.Linq;
 using System.Web;
 
 namespace Vidly.Models
-{
+{ 
+
     public class Customer
     {
         public int Id { get; set; }
-        [Required]
+        
         [StringLength(255)]
-
+        [Required(ErrorMessage ="Please enter customer name")]
         public string Name { get; set; }
 
         public bool IsSubscribedToNewsletter { get; set; }
@@ -20,8 +21,9 @@ namespace Vidly.Models
         [Display(Name="Membership Type")]
 
         public byte MembershipTypeId { get; set; }
-        [Display(Name="Date of Birth")]
 
+        [Display(Name="Date of Birth")]
+        [Min18YearsIfAMember]
         public DateTime? Birthday { get; set; }
     }
 }
